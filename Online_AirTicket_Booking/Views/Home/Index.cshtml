@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Online_AirTicket_Booking.Models.Ticket>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Flight List</h2>
+
+@using(Html.BeginForm("Index","Home",FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input type="submit" value="Search" />
+}
+
+<br />
+
+<table class="table" style="border:groove" border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arrival)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Depture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.To)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.From)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Arrival)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Depture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.To)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.From)
+        </td>
+        <td>
+            @Html.ActionLink("Calculator", "Calculator", new { id=item.Id }) |
+            @Html.ActionLink("Ticket_Booking", "Ticket_Booking", new { id=item.Id }) |
+            
+        </td>
+    </tr>
+}
+
+</table>

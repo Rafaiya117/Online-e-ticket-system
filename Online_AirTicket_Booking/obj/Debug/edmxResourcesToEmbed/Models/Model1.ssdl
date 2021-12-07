@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Online_AirTicketsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="PHN" Type="int" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="PassportNo" Type="int" />
+    <Property Name="CardName" Type="varchar(max)" />
+    <Property Name="CardNo" Type="int" />
+    <Property Name="Amount" Type="int" />
+  </EntityType>
+  <EntityType Name="Staffs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="password" Type="int" />
+    <Property Name="Passport_No" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="PHN" Type="int" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Post" Type="varchar" MaxLength="100" />
+    <Property Name="Salary" Type="int" />
+  </EntityType>
+  <EntityType Name="Tickets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Arrival" Type="time" Precision="7" />
+    <Property Name="Depture" Type="time" Precision="7" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Price" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="To" Type="nvarchar(max)" />
+    <Property Name="From" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="Online_AirTicketsModelStoreContainer">
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staffs" EntityType="Self.Staffs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
